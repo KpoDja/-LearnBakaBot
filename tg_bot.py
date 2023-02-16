@@ -18,10 +18,11 @@ def greet_user(update, context):
     update.message.reply_text("Hello user, спроси про 'Планеты'")
 
 
-def talk_to_me(update, context):
+def planet_info(update, context):
     text = update.message.text
     constellation = ephem.constellation(all_planet[text.capitalize()])
-    if text in all_planet:
+
+    if text.capitalize() in all_planet:
         print(update.message.reply_text(constellation))
     else:
         print(text)
@@ -33,7 +34,7 @@ def main():
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
-    dp.add_handler(MessageHandler(Filters.text, talk_to_me))
+    dp.add_handler(MessageHandler(Filters.text, planet_info))
 
     logging.info("Бот стартовал")
     mybot.start_polling()
