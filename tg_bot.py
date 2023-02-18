@@ -26,8 +26,7 @@ def planet_info(update, context):
     if text.capitalize() in all_planet:
         print(update.message.reply_text(constellation))
     else:
-        print(text)
-        update.message.reply_text(text)
+        print("Не наблюдается")
 
 
 def talk_to_me(update, context):
