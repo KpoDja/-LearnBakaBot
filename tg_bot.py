@@ -41,7 +41,7 @@ def wordcount(update, context):
 def moon(update, context):
     moon = ephem.next_full_moon(datetime.date.today())
     moon_date = update.message.text.split(" ")[1]
-    if moon_date.capitalize() == "Затмение":
+    if moon_date.capitalize() == "Полнолуние":
         update.message.reply_text(moon)
     else:
         update.message.reply_text("Когда же?")
